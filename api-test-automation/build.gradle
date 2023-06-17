@@ -33,6 +33,16 @@ dependencies {
     // Playwright Dependencies
     // https://mvnrepository.com/artifact/com.microsoft.playwright/playwright
     implementation 'com.microsoft.playwright:playwright:1.32.0'
+    // https://mavenlibs.com/maven/dependency/org.apache.juneau/juneau-all
+    implementation 'org.apache.juneau:juneau-all:9.0.0'
+    // https://mavenlibs.com/maven/dependency/com.googlecode.json-simple/json-simple
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+    // https://mavenlibs.com/maven/dependency/com.jayway.jsonpath/json-path
+    implementation 'com.jayway.jsonpath:json-path:2.8.0'
+
+    // https://mvnrepository.com/artifact/net.minidev/json-smart (When return type of Json path is JSONArray this dep is required)
+    implementation 'net.minidev:json-smart:2.4.11'
+
 }
 
 //Cucumber Setting-2
