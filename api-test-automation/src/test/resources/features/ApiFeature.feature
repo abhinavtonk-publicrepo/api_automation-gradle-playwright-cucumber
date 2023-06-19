@@ -8,7 +8,6 @@ Feature: Basic API Feature
     When User makes a GET call to 'api/users/2' endpoint
     Then User verifies that response is OK
 
-  @test
   Scenario: Test POST Request
     Given User makes a POST call to 'api/users' endpoint
     Then User verifies that response is OK
