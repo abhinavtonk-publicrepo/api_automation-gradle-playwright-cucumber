@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class LearningCucumberStepDef {
     @Given("User {} the application")
@@ -38,5 +39,26 @@ public class LearningCucumberStepDef {
     @Then("User verifies new app")
     public void multipleAnnotationOverSingleMethod() {
         System.out.println("Multiple Annotation over single method");
+    }
+
+    @When("User verifies following webelements")
+    public void useOf1dDataTable(List<String> list1D) {
+        for(String s : list1D){
+            System.out.println("1D Data Table Elements = " + s);
+        }
+    }
+    @When("User enters following details")
+    public void useOf2dDataTable(List<List<String>> list2D) {
+        for(int i =0;i<list2D.size();i++){
+            for (int j=0;j<list2D.get(i).size();j++){
+                System.out.print(" " + list2D.get(i).get(j) + " ");
+            }
+            System.out.println("");// TO introduce new line after each iteration of outer loop
+        }
+    }
+    @Then("{string} verifies his {int}")
+    public void scenarioOutlineExample(String user, int id) {
+        System.out.println("User = "+ user);
+        System.out.println("Id = "+ id);
     }
 }
