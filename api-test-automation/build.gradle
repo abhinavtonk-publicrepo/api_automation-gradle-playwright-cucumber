@@ -43,6 +43,10 @@ dependencies {
     // https://mvnrepository.com/artifact/net.minidev/json-smart (When return type of Json path is JSONArray this dep is required)
     implementation 'net.minidev:json-smart:2.4.11'
 
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+
 }
 
 //Cucumber Setting-2

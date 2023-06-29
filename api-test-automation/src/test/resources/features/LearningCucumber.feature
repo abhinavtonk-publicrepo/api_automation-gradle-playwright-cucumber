@@ -24,11 +24,10 @@ Feature:Learning Cucumber
       | Banana |
       | Carrot |
 
-  @test
   # 3 - Use of Data Tables (2nd Way) ==> THIS GIVES ERROR AND IS NOT THE CORRECT WAY TO DEFINE 1-d DataTables
 #  Scenario: Use of 1-d DataTables 2nd Way
 #    When User verifies following webelements
-#      | Apple | Banana | Carrot |  ==> THIS GIVES ERROR AND IS NOT THE CORRECT WAY TO DEFINE 1-d DataTables
+#      | Apple | Banana | Carrot |  ==> THIS GIVES ERROR AND IS NOT THE CORRECT WAY TO DEFINE 1-d DataTables, this will be treated as 2-d Datatable
 
 
   # 4- Use of 2-d Data Tables

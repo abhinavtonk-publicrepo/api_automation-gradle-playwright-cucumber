@@ -2,6 +2,8 @@ package utils;
 
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
+import org.apache.juneau.json.JsonParser;
+import org.apache.juneau.json.JsonSerializer;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -26,5 +28,23 @@ public class JsonUtil {
         // 4. java.lang.String
         DocumentContext dc = JsonPath.parse(jsonString);
         return dc.read(jsonPath);
+    }
+
+    public <T> T jsonStringToPojoDeserialization(String jsonString, Class<T> type){
+        JsonParser jp = JsonParser.DEFAULT;
+        return jp.parse(jsonString, type);
+    }
+
+    public String pojoToJsonSerialization(Object obj){
+        JsonSerializer js = JsonSerializer.DEFAULT_READABLE;
+        return js.serialize(obj);
+    }
+
+    public <T> boolean compareJsons(String json1, String json2, Class<T> type){
+        JsonParser jp = JsonParser.DEFAULT;
+        T ref1 = jp.parse(json1, type);
+        T ref2 = jp.parse(json2, type);
+
+        return ref1.equals(ref2);
     }
 }
