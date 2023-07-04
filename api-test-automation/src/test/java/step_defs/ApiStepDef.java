@@ -1,20 +1,18 @@
 package step_defs;
 
-import com.google.gson.JsonArray;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.minidev.json.JSONArray;
+import pojos.sample_pojo.SamplePojo;
 import pojos.single_user.SingleUserRoot;
 import utils.JsonUtil;
 import utils.PlaywrightApiUtil;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class ApiStepDef {
     PlaywrightApiUtil apiUtil;
@@ -89,11 +87,19 @@ public class ApiStepDef {
 
     @When("User do deserialization from json file to Pojo")
     public void deserializationSerialization() throws IOException {
-        String jsonRespStrFromFile = jsonUtil.readFromJsonFile(System.getProperty("user.dir")+"/src/test/resources/json_files/response_files/SingleUserJson.json");
+        // 1. When root element is Object
+//        String jsonRespStrFromFile = jsonUtil.readFromJsonFile(System.getProperty("user.dir")+"/src/test/resources/json_files/response_files/SingleUserJson.json");
+//        System.out.println(jsonRespStrFromFile);
+//        SingleUserRoot ref = jsonUtil.jsonStringToPojoDeserialization(jsonRespStrFromFile, SingleUserRoot.class);
+//        System.out.println("ref == > " + ref.toString());
+//        System.out.println("ref.data.id == " + ref.data.id);
+
+        // 2. When Root element of json is Array
+        String jsonRespStrFromFile = jsonUtil.readFromJsonFile(System.getProperty("user.dir")+"/src/test/resources/json_files/response_files/SampleList.json");
         System.out.println(jsonRespStrFromFile);
-        SingleUserRoot ref = jsonUtil.jsonStringToPojoDeserialization(jsonRespStrFromFile, SingleUserRoot.class);
+        ArrayList<SamplePojo> ref = jsonUtil.jsonStringToPojoDeserialization(jsonRespStrFromFile, ArrayList.class);
         System.out.println("ref == > " + ref.toString());
-        System.out.println("ref.data.id == " + ref.data.id);
+        System.out.println("ref[0] == " + ref.get(0));
     }
 
     //----------------private methods of class-----------------------------------
