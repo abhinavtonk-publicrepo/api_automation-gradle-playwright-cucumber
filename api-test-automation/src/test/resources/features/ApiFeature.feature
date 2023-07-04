@@ -12,10 +12,10 @@ Feature: Basic API Feature
     Given User makes a POST call to 'api/users' endpoint
     Then User verifies that response is OK
 
-
+  @test
   Scenario: Test Json De-serialization
     When User do deserialization from json file to Pojo
 
-  @test
+
   Scenario: Test Json comparison
     And User makes a GET call to 'api/users/2' endpoint and verify response json to stored json
